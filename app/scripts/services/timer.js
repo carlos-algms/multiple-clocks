@@ -13,12 +13,17 @@ angular.module('g4cClocksApp')
 /**
  * @ngInject
  */
-function TimerService($interval) {
+function TimerService($interval, $q) {
+  var vm = this;
   this.hours = 0;
   this.minutes = 0;
   this.seconds = 0;
 
-  $interval(timerLooper, 1000, 0, true, this, prependZero);
+  this.deferred = $q.defer();
+  this.promise = this.deferred.promise;
+  this.onUpdate = onUpdate;
+
+  $interval(timerLooper, 1000, 0, false, this, prependZero);
 
   ///////////////////////////////////////
 
@@ -27,6 +32,7 @@ function TimerService($interval) {
     timer.hours = prependZero( date.getHours() );
     timer.minutes = prependZero( date.getMinutes() );
     timer.seconds = prependZero( date.getSeconds() );
+    timer.deferred.notify(timer);
   }
 
   function prependZero(n) {
@@ -34,6 +40,10 @@ function TimerService($interval) {
       return n;
     }
     return '0' + n.toString();
+  }
+
+  function onUpdate(fn) {
+    vm.promise.then(null, null, fn);
   }
 }
 

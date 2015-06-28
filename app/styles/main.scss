@@ -1,31 +1,23 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
 @import "clock";
 
 body {
   padding: 0;
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
 }
 
 .row {
   margin-bottom: 20px;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .container {
+  text-align: center;
   padding-top: 15px;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page footer */
-.footer {
-  margin-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
 }

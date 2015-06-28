@@ -24,31 +24,25 @@
       <div ng-view=""></div>
     </div>
 
-    <div class="footer">
-      <div class="container">
+    <div class="hidden">
+      <!-- build:js(.) scripts/vendor.js -->
+      <!-- bower:js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/angular-route/angular-route.js"></script>
+      <script src="bower_components/angular-touch/angular-touch.js"></script>
+      <!-- endbower -->
+      <!-- endbuild -->
 
-      </div>
+      <!-- build:js({.tmp,app}) scripts/scripts.js -->
+      <script src="scripts/app.js"></script>
+      <script src="scripts/controllers/main.js"></script>
+      <script src="scripts/directives/clock.js"></script>
+      <script src="scripts/directives/clock-digital.js"></script>
+      <script src="scripts/services/timer.js"></script>
+      <script src="scripts/directives/clock-analogic.js"></script>
+      <!-- endbuild -->
     </div>
-
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/directives/clock.js"></script>
-        <script src="scripts/directives/clock-digital.js"></script>
-        <script src="scripts/services/timer.js"></script>
-        <script src="scripts/directives/clock-analogic.js"></script>
-        <!-- endbuild -->
 </body>
 </html>
