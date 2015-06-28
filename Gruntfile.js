@@ -412,6 +412,12 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    shell: {
+      deployHeroku: {
+        command: 'git subtree push --prefix dist/ heroku master'
+      }
     }
   });
 
