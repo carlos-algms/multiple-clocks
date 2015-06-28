@@ -10,3 +10,28 @@
 .clock-digital--separator {
   padding: 0 5px;
 }
+
+
+.clock-analogic {
+  display: inline-block;
+  border: 10px solid #000;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  position: relative;
+
+  > * {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: red;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.clock-analogic--hours {
+
+}
