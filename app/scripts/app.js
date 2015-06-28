@@ -10,9 +10,7 @@
  */
 angular
   .module('g4cClocksApp', [
-    'ngAnimate',
-    'ngRoute',
-    'ngTouch'
+    'ngRoute'
   ])
   .config(function ($routeProvider) {
     $routeProvider

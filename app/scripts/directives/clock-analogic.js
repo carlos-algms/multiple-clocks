@@ -33,10 +33,12 @@ function clockAnalogicDirective(timer) {
   ///////////////////
 
   function clockAnalogicPostLink($scope, $clock) {
+    var pointersNodes = $clock.find('span');
+
     var pointers = {
-      seconds: $clock.find('.clock-analogic--seconds'),
-      minutes: $clock.find('.clock-analogic--minutes'),
-      hours: $clock.find('.clock-analogic--hours')
+      seconds: pointersNodes.eq(2),
+      minutes: pointersNodes.eq(0),
+      hours: pointersNodes.eq(1)
     };
 
 
