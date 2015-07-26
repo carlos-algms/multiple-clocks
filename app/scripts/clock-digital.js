@@ -1,8 +1,10 @@
-(function () {
+(function clockDigitalClosure() {
   'use strict';
 
   var clocks = document.querySelectorAll('.clock-digital');
   var clocksLength = clocks.length;
+
+  digitalClocksUpdate();
 
   setInterval(digitalClocksUpdate, 1000);
 

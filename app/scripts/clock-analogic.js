@@ -1,65 +1,60 @@
-'use strict';
+(function clockAnalogicClosure() {
+  'use strict';
 
-function clockAnalogicDirective(timer) {
+  var clocks = document.querySelectorAll('.clock-analogic');
+  var clocksLength = clocks.length;
 
-  return {
-    restrict: 'E',
-    template: [
-      '<div class="clock-analogic">' +
-        '<ul class="clock-analogic--marks"><li></li><li></li><li></li><li></li><li></li><li></li></ul>' +
-        '<div class="clock-analogic--pointers">' +
-          '<span class="clock-analogic--minutes"></span>' +
-          '<span class="clock-analogic--hours"></span>' +
-          '<span class="clock-analogic--seconds"></span>' +
-        '</div>' +
-      '</div>'
-    ].join('\n'),
-    scope: {},
-    link: clockAnalogicPostLink
-  };
+  cachePointers();
+  analogicClocksUpdate();
+  setInterval(analogicClocksUpdate, 1000);
 
-  ///////////////////
+  ////////////////
 
-  function clockAnalogicPostLink($scope, $clock) {
-    var pointersNodes = $clock.find('span');
-
-    var pointers = {
-      seconds: pointersNodes.eq(2),
-      minutes: pointersNodes.eq(0),
-      hours: pointersNodes.eq(1)
-    };
-
-
-    timer.onUpdate(clockAnalogicOnUpdate);
-
-    ////////////
-
-    function clockAnalogicOnUpdate(timer) {
-      updateSeconds(pointers.seconds, timer.seconds);
-      updateMinutes(pointers.minutes, timer.minutes);
-      updateHours(pointers.hours, timer.hours);
+  function cachePointers() {
+    for( var i = 0, clock; i < clocksLength; i++ ) {
+      clock = clocks[i];
+      clock.pointers = {
+        hours: clock.querySelector('.clock-analogic--hours'),
+        minutes: clock.querySelector('.clock-analogic--minutes'),
+        seconds: clock.querySelector('.clock-analogic--seconds')
+      };
     }
   }
 
-  function updateSeconds(pointer, value) {
-    _updatePointer(pointer, value, 60);
+  function analogicClocksUpdate() {
+    for( var i = 0; i < clocksLength; i++ ) {
+      updateClock(clocks[i]);
+    }
   }
 
-  function updateMinutes(pointer, value) {
-    _updatePointer(pointer, value, 60);
+  function updateClock(clock) {
+    var time = currentTime();
+    updateSeconds(clock.pointers.seconds, time);
+    updateMinutes(clock.pointers.minutes, time);
+    updateHours(clock.pointers.hours, time);
   }
 
-  function updateHours(pointer, value) {
-    _updatePointer(pointer, value, 12);
+  function updateSeconds(pointer, time) {
+    _updatePointer(pointer, time.seconds, 60);
+  }
+
+  function updateMinutes(pointer, time) {
+    _updatePointer(pointer, time.minutes, 60);
+  }
+
+  function updateHours(pointer, time) {
+    var deg = 30 * (time.hours % 12) + time.minutes / 2;
+    _setStyle(pointer, deg);
   }
 
   function _updatePointer(pointer, value, divisor) {
     var deg = (value / divisor * 360);
-
-    pointer.css({
-      transform: 'rotate(' + deg + 'deg)',
-      transition: deg == 0 ? 'nome' : ''
-    });
+    _setStyle(pointer, deg);
   }
 
-}
+  function _setStyle(pointer, deg) {
+    pointer.style.transform = 'rotate(' + deg + 'deg)';
+    pointer.style.transition = deg == 0 ? 'nome' : '';
+  }
+
+})();
