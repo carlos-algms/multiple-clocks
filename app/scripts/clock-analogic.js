@@ -1,17 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc directive
- * @name g4cClocksApp.directive:clockAnalogic
- * @description
- * # clockAnalogic
- */
-angular.module('g4cClocksApp')
-  .directive('clockAnalogic', clockAnalogicDirective);
-
-/**
- * @ngInject
- */
 function clockAnalogicDirective(timer) {
 
   return {

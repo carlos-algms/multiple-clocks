@@ -1,7 +1,7 @@
 <!doctype html>
-<html class="" ng-app="g4cClocksApp">
+<html class="">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Multiple clocks</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
@@ -10,27 +10,41 @@
     <link rel="stylesheet" href="styles/main.css" />
     <!-- endbuild -->
   </head>
-  <body ng-controller="MainCtrl as main">
+  <body>
 
     <div class="container">
-      <div ng-view=""></div>
+      <div class="row">
+        <aside class="col-sm-4 col-sm-push-4 text-center">
+          <div class="clock-digital">
+            <span class="clock-digital--hours"></span>
+            <span class="clock-digital--seconds"></span>
+            <span class="clock-digital--seconds"></span>
+          </div>
+          <div class="clock-digital">
+            <span class="clock-digital--hours"></span>
+            <span class="clock-digital--seconds"></span>
+            <span class="clock-digital--seconds"></span>
+          </div>
+        </aside>
+      </div>
+
+      <div class="row">
+        <aside class="col-sm-4 col-sm-push-4 text-center">
+          <clock-analogic></clock-analogic>
+        </aside>
+      </div>
     </div>
 
     <div class="hidden">
       <!-- build:js(.) scripts/vendor.js -->
       <!-- bower:js -->
-      <script src="bower_components/angular/angular.js"></script>
-      <script src="bower_components/angular-route/angular-route.js"></script>
       <!-- endbower -->
       <!-- endbuild -->
 
       <!-- build:js({.tmp,app}) scripts/scripts.js -->
-      <script src="scripts/app.js"></script>
-      <script src="scripts/controllers/main.js"></script>
-      <script src="scripts/directives/clock.js"></script>
-      <script src="scripts/directives/clock-digital.js"></script>
-      <script src="scripts/services/timer.js"></script>
-      <script src="scripts/directives/clock-analogic.js"></script>
+      <script src="scripts/utils.js"></script>
+      <script src="scripts/clock-digital.js"></script>
+      <script src="scripts/clock-analogic.js"></script>
       <!-- endbuild -->
     </div>
 </body>
