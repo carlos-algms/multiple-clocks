@@ -16,9 +16,10 @@ module.exports = function(config) {
     // testing framework to use (jasmine/mocha/qunit/...)
     // as well as any additional frameworks (requirejs/chai/sinon/...)
     frameworks: [
-      "jasmine",
+      //"jasmine",
       'mocha',
-      'chai'
+      'chai',
+      'sinon'
     ],
 
     // list of files / patterns to load in the browser
@@ -52,9 +53,10 @@ module.exports = function(config) {
     // Which plugins to enable
     plugins: [
       'karma-chrome-launcher',
-      'karma-jasmine',
       'karma-mocha',
-      'karma-chai'
+      //'karma-jasmine',
+      'karma-chai',
+      'karma-sinon'
     ],
 
     // Continuous Integration mode
