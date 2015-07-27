@@ -16,7 +16,9 @@ module.exports = function(config) {
     // testing framework to use (jasmine/mocha/qunit/...)
     // as well as any additional frameworks (requirejs/chai/sinon/...)
     frameworks: [
-      "jasmine"
+      "jasmine",
+      'mocha',
+      'chai'
     ],
 
     // list of files / patterns to load in the browser
@@ -44,13 +46,15 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      "PhantomJS"
+      "Chrome"
     ],
 
     // Which plugins to enable
     plugins: [
-      "karma-phantomjs-launcher",
-      "karma-jasmine"
+      'karma-chrome-launcher',
+      'karma-jasmine',
+      'karma-mocha',
+      'karma-chai'
     ],
 
     // Continuous Integration mode
