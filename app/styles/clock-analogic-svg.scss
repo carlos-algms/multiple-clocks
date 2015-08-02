@@ -3,10 +3,11 @@
 }
 
 .clock-analogic-svg--marks {
+}
 
-  line {
-    stroke: black;
-    stroke-width: 1em;
+.clock-analogic-svg--pointers {
+  > * {
+    transform-origin: bottom;
+    transition: all 200ms ease-out;
   }
-
 }

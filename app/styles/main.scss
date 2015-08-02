@@ -22,4 +22,19 @@ body {
 .container {
   text-align: center;
   padding-top: 15px;
+
+  aside {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    border: 1px solid #CCC;
+    padding: 0 15px 15px 15px;
+    margin-top: 20px;
+    background: #FFF;
+    box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.2);
+  }
 }
+
+
