@@ -3,6 +3,12 @@
     "browser": true,
     "es6": true
   },
+  "globals": {
+    "updateSeconds": true,
+    "updateMinutes": true,
+    "updateHours": true,
+    "updateClock": true
+  },
   "extends": ["airbnb-base"],
   "ignorePatterns": ["**/*.d.ts"],
   "parserOptions": {

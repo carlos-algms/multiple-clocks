@@ -6,7 +6,7 @@
 
 .clock-analogic-svg--pointers {
   > * {
-    transform-origin: bottom;
+    transform-origin: 50% 50%;
     transition: all 200ms ease-out;
   }
 }
