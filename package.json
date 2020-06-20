@@ -4,7 +4,7 @@
   "scripts": {
     "test": "grunt test",
     "serve": "grunt serve",
-    "build": "grunt build",
+    "build": "mkdir bower_components && grunt build",
     "deploy:heroku": "grunt build && git subtree push --prefix dist/ heroku master"
   },
   "dependencies": {},
