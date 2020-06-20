@@ -3,7 +3,7 @@
 
   var analogicClocks = window.document.querySelectorAll('.clock-analogic');
 
-  if( analogicClocks.length ) {
+  if (analogicClocks.length) {
     cachePointers();
     analogicClocksUpdate();
     setInterval(analogicClocksUpdate, 1000);
@@ -12,18 +12,18 @@
   ////////////////
 
   function cachePointers() {
-    for( var i = 0, clock; i < analogicClocks.length; i++ ) {
+    for (var i = 0, clock; i < analogicClocks.length; i++) {
       clock = analogicClocks[i];
       clock.pointers = {
         hours: clock.querySelector('.clock-analogic--hours'),
         minutes: clock.querySelector('.clock-analogic--minutes'),
-        seconds: clock.querySelector('.clock-analogic--seconds')
+        seconds: clock.querySelector('.clock-analogic--seconds'),
       };
     }
   }
 
   function analogicClocksUpdate() {
-    for( var i = 0; i < analogicClocks.length; i++ ) {
+    for (var i = 0; i < analogicClocks.length; i++) {
       updateClock(analogicClocks[i]);
     }
   }
@@ -49,7 +49,7 @@
   }
 
   function _updatePointer(pointer, value, divisor) {
-    var deg = (value / divisor * 360);
+    var deg = (value / divisor) * 360;
     _setStyle(pointer, deg);
   }
 
@@ -66,7 +66,6 @@
     updateMinutes: updateMinutes,
     updateHours: updateHours,
     _updatePointer: _updatePointer,
-    _setStyle: _setStyle
+    _setStyle: _setStyle,
   };
-
 })(this);

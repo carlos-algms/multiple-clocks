@@ -11,7 +11,7 @@
   ////////////////
 
   function digitalClocksUpdate() {
-    for( var i = 0; i < clocksLength; i++ ) {
+    for (var i = 0; i < clocksLength; i++) {
       updateClock(clocks[i]);
     }
   }
@@ -23,6 +23,4 @@
     places[1].innerHTML = time.minutes;
     places[2].innerHTML = time.seconds;
   }
-
 })();
-

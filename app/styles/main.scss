@@ -1,14 +1,14 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 // endbower
 
-@import "clock";
-@import "clock-analogic";
-@import "clock-analogic-svg";
+@import 'clock';
+@import 'clock-analogic';
+@import 'clock-analogic-svg';
 
 body {
   padding: 0;
-  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue Light', 'HelveticaNeue-Light', 'Helvetica Neue', Calibri, Helvetica,
+    Arial, sans-serif;
 }
 
 .row {
@@ -25,16 +25,15 @@ body {
 
   aside {
     display: inline-block;
+
     &:not(:last-child) {
       margin-right: 20px;
     }
 
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     padding: 0 15px 15px 15px;
     margin-top: 20px;
-    background: #FFF;
-    box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.2);
+    background: #fff;
+    box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.2);
   }
 }
-
-
