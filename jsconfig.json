@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "checkJs": true,
+    "jsx": "react",
+    "lib": ["dom", "es2018"]
+  },
+  "exclude": ["node_modules", "public", "dist", ".tmp", ".sass-cache"],
+  "typeAcquisition": {
+    "include": ["karma", "chai", "node"]
+  }
+}

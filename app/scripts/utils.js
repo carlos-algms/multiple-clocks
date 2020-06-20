@@ -1,5 +1,5 @@
 /**
- *
+ * @global
  * @returns {{hours: *, minutes: *, seconds: *}}
  */
 function currentTime() {
@@ -12,9 +12,14 @@ function currentTime() {
   };
 }
 
+/**
+ * @global
+ * @param {number | string} n
+ * @returns {string}
+ */
 function prependZero(n) {
   if (n >= 10) {
-    return n;
+    return '' + n;
   }
   return '0' + n.toString();
 }

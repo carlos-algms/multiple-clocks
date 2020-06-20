@@ -1,13 +1,11 @@
 'use strict';
 
-describe('Prepend zeros', function () {
-
-  it('Return a string "01"', function () {
+describe('Prepend zeros', () => {
+  it('Return a string "01"', () => {
     prependZero(1).should.equal('01');
   });
 
-  it('Return a number 11', function () {
+  it('Return a number 11', () => {
     prependZero(11).should.equal(11);
   });
-
 });

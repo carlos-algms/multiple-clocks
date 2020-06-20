@@ -1,40 +1,37 @@
 'use strict';
 
-describe('Test clock-analogic Api', function () {
+describe('Test clock-analogic Api', () => {
+  const time = {
+    hours: 10,
+    minutes: 30,
+    seconds: '00',
+  };
+  /** @type {HTMLSpanElement} */
+  let pointer;
 
-  before(function () {
-    this.time = {
-      hours: 10,
-      minutes: 30,
-      seconds: '00'
-    };
+  beforeEach(() => {
+    pointer = document.createElement('span');
   });
 
-  beforeEach(function () {
-    this.pointer = document.createElement('span');
+  afterEach(() => {
+    pointer = null;
   });
 
-  afterEach(function () {
-    this.pointer = null;
-  });
-
-
-  it('Calculate correct seconds Degrees', function () {
-    analogicClockApi.updateSeconds(this.pointer, this.time);
-    var degrees = this.pointer.style.transform.replace(/[^0-9]/ig, '');
+  it('Calculate correct seconds Degrees', () => {
+    analogicClockApi.updateSeconds(pointer, time);
+    const degrees = pointer.style.transform.replace(/[^0-9]/gi, '');
     degrees.should.equal('0');
   });
 
-  it('Calculate correct minutes Degrees', function () {
-    analogicClockApi.updateMinutes(this.pointer, this.time);
-    var degrees = this.pointer.style.transform.replace(/[^0-9]/ig, '');
+  it('Calculate correct minutes Degrees', () => {
+    analogicClockApi.updateMinutes(pointer, time);
+    const degrees = pointer.style.transform.replace(/[^0-9]/gi, '');
     degrees.should.equal('180');
   });
 
-  it('Calculate correct hours Degrees', function () {
-    analogicClockApi.updateHours(this.pointer, this.time);
-    var degrees = this.pointer.style.transform.replace(/[^0-9]/ig, '');
+  it('Calculate correct hours Degrees', () => {
+    analogicClockApi.updateHours(pointer, time);
+    const degrees = pointer.style.transform.replace(/[^0-9]/gi, '');
     degrees.should.equal('315');
   });
-
 });
