@@ -23,7 +23,11 @@ module.exports = (config) => {
     ],
 
     // list of files / patterns to load in the browser
-    files: ['app/scripts/**/*.js', 'test/mock/**/*.js', 'test/spec/**/*.js'],
+    files: [
+      'app/scripts/**/*.js',
+      // 'test/mock/**/*.js',
+      'test/spec/**/*.js',
+    ],
 
     // list of files / patterns to exclude
     exclude: [],

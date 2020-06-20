@@ -6,6 +6,6 @@ describe('Prepend zeros', () => {
   });
 
   it('Return a number 11', () => {
-    prependZero(11).should.equal(11);
+    prependZero(11).should.equal('11');
   });
 });
