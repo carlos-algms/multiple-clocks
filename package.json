@@ -1,6 +1,10 @@
 {
   "name": "g4cclocks",
   "version": "0.0.0",
+  "scripts": {
+    "test": "grunt test",
+    "server": "grunt serve"
+  },
   "dependencies": {},
   "repository": {},
   "devDependencies": {
@@ -39,8 +43,5 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "grunt test"
   }
 }
