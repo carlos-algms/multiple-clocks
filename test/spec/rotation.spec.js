@@ -4,9 +4,10 @@ describe('Test clock-analogic Api', () => {
   const time = {
     hours: 10,
     minutes: 30,
-    seconds: '00',
+    seconds: 0,
   };
-  /** @type {HTMLSpanElement} */
+
+  /** @type {HTMLElement} */
   let pointer;
 
   beforeEach(() => {
@@ -18,19 +19,19 @@ describe('Test clock-analogic Api', () => {
   });
 
   it('Calculate correct seconds Degrees', () => {
-    analogicClockApi.updateSeconds(pointer, time);
+    updateSeconds(pointer, time);
     const degrees = pointer.style.transform.replace(/[^0-9]/gi, '');
     degrees.should.equal('0');
   });
 
   it('Calculate correct minutes Degrees', () => {
-    analogicClockApi.updateMinutes(pointer, time);
+    updateMinutes(pointer, time);
     const degrees = pointer.style.transform.replace(/[^0-9]/gi, '');
     degrees.should.equal('180');
   });
 
   it('Calculate correct hours Degrees', () => {
-    analogicClockApi.updateHours(pointer, time);
+    updateHours(pointer, time);
     const degrees = pointer.style.transform.replace(/[^0-9]/gi, '');
     degrees.should.equal('315');
   });

@@ -1,13 +1,16 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "mocha": true
   },
   "globals": {
     "updateSeconds": true,
     "updateMinutes": true,
     "updateHours": true,
-    "updateClock": true
+    "updateClock": true,
+    "currentTime": true,
+    "prependZero": true
   },
   "extends": ["airbnb-base"],
   "ignorePatterns": ["**/*.d.ts"],
