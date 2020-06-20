@@ -38,6 +38,10 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>',
         },
       },
+      jsTest: {
+        files: ['test/spec/{,*/}*.js'],
+        tasks: ['newer:jshint:test', 'karma:unit'],
+      },
       sass: {
         files: ['<%= appConfig.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['sass', 'autoprefixer'],
@@ -281,6 +285,16 @@ module.exports = function (grunt) {
       server: ['sass'],
       dist: ['sass', 'imagemin', 'svgmin'],
     },
+
+    karma: {
+      options: {
+        configFile: 'test/karma.conf.js',
+      },
+      unit: {
+        singleRun: true,
+      },
+      watch: {},
+    },
   });
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
@@ -296,6 +310,8 @@ module.exports = function (grunt) {
       'watch',
     ]);
   });
+
+  grunt.registerTask('test', ['karma:unit']);
 
   grunt.registerTask('build', [
     'clean:dist',

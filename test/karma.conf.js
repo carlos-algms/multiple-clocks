@@ -3,7 +3,7 @@
 // Generated on 2015-06-27 using
 // generator-karma 1.0.0
 
-module.exports = function(config) {
+module.exports = (config) => {
   'use strict';
 
   config.set({
@@ -16,24 +16,17 @@ module.exports = function(config) {
     // testing framework to use (jasmine/mocha/qunit/...)
     // as well as any additional frameworks (requirejs/chai/sinon/...)
     frameworks: [
-      //"jasmine",
+      // "jasmine",
       'mocha',
       'chai',
-      'sinon'
+      'sinon',
     ],
 
     // list of files / patterns to load in the browser
-    files: [
-      // bower:js
-      // endbower
-      "app/scripts/**/*.js",
-      "test/mock/**/*.js",
-      "test/spec/**/*.js"
-    ],
+    files: ['app/scripts/**/*.js', 'test/mock/**/*.js', 'test/spec/**/*.js'],
 
     // list of files / patterns to exclude
-    exclude: [
-    ],
+    exclude: [],
 
     // web server port
     port: 8080,
@@ -46,17 +39,15 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: [
-      "Chrome"
-    ],
+    browsers: ['jsdom'],
 
     // Which plugins to enable
     plugins: [
-      'karma-chrome-launcher',
+      'karma-jsdom-launcher',
+      // 'karma-jasmine',
       'karma-mocha',
-      //'karma-jasmine',
       'karma-chai',
-      'karma-sinon'
+      'karma-sinon',
     ],
 
     // Continuous Integration mode
