@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": ["airbnb-base"],
+  "ignorePatterns": ["**/*.d.ts"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "modules": false
+    },
+    "ecmaVersion": 6,
+    "sourceType": "script"
+  },
+  "rules": {
+    "arrow-body-style": ["error", "always"],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "no-plusplus": "off",
+    "no-underscore-dangle": "off",
+    "no-use-before-define": [
+      "error",
+      {
+        "classes": true,
+        "functions": false
+      }
+    ],
+    "no-var": "off",
+    "prefer-template": "off",
+    "strict": "off",
+    "vars-on-top": "off",
+    "wrap-iife": ["error", "inside"]
+  }
+}

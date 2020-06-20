@@ -8,7 +8,7 @@
 
   setInterval(digitalClocksUpdate, 1000);
 
-  ////////////////
+  // //////////////
 
   function digitalClocksUpdate() {
     for (var i = 0; i < clocksLength; i++) {
@@ -18,9 +18,11 @@
 
   function updateClock(clock) {
     var places = clock.children;
+    /* eslint-disable no-undef */
     var time = currentTime();
-    places[0].innerHTML = time.hours;
-    places[1].innerHTML = time.minutes;
-    places[2].innerHTML = time.seconds;
+    places[0].innerHTML = prependZero(time.hours);
+    places[1].innerHTML = prependZero(time.minutes);
+    places[2].innerHTML = prependZero(time.seconds);
+    /* eslint-enable */
   }
 })();

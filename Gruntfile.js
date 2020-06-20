@@ -1,6 +1,8 @@
 'use strict';
 
+// @ts-ignore
 const loadGruntTasks = require('load-grunt-tasks');
+// @ts-ignore
 const timeGrunt = require('time-grunt');
 const serveStatic = require('serve-static');
 const sass = require('node-sass');
@@ -33,14 +35,14 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: ['<%= appConfig.app %>/scripts/**/*.js'],
-        tasks: ['newer:jshint:all'],
+        tasks: [],
         options: {
           livereload: '<%= connect.options.livereload %>',
         },
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma:unit'],
+        tasks: ['karma:unit'],
       },
       sass: {
         files: ['<%= appConfig.app %>/styles/{,*/}*.{scss,sass}'],
@@ -72,7 +74,7 @@ module.exports = function (grunt) {
       livereload: {
         options: {
           open: true,
-          middleware: function (connect) {
+          middleware: (connect) => {
             return [
               serveStatic('.tmp'),
               connect().use('/app/styles', serveStatic('./app/styles')),
@@ -86,17 +88,6 @@ module.exports = function (grunt) {
           open: true,
           base: '<%= appConfig.dist %>',
         },
-      },
-    },
-
-    // Make sure code styles are up to par and there are no obvious mistakes
-    jshint: {
-      options: {
-        jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish'),
-      },
-      all: {
-        src: ['Gruntfile.js', '<%= appConfig.app %>/scripts/{,*/}*.js'],
       },
     },
 
@@ -297,12 +288,12 @@ module.exports = function (grunt) {
     },
   });
 
-  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+  grunt.registerTask('serve', 'Compile then start a connect web server', (target) => {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
 
-    grunt.task.run([
+    return grunt.task.run([
       'clean:server',
       'concurrent:server',
       'autoprefixer:server',

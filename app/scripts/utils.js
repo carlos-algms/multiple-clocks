@@ -1,14 +1,15 @@
 /**
  * @global
- * @returns {{hours: *, minutes: *, seconds: *}}
+ * @returns {ICurrentTime}
  */
+// eslint-disable-next-line no-unused-vars
 function currentTime() {
   var date = new Date();
 
   return {
-    hours: prependZero(date.getHours()),
-    minutes: prependZero(date.getMinutes()),
-    seconds: prependZero(date.getSeconds()),
+    hours: date.getHours(),
+    minutes: date.getMinutes(),
+    seconds: date.getSeconds(),
   };
 }
 
@@ -17,9 +18,10 @@ function currentTime() {
  * @param {number | string} n
  * @returns {string}
  */
+// eslint-disable-next-line no-unused-vars
 function prependZero(n) {
   if (n >= 10) {
-    return '' + n;
+    return n.toString();
   }
   return '0' + n.toString();
 }
