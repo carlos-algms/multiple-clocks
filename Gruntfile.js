@@ -31,10 +31,6 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      bower: {
-        files: ['bower.json'],
-        tasks: ['wiredep'],
-      },
       js: {
         files: ['<%= appConfig.app %>/scripts/**/*.js'],
         tasks: ['newer:jshint:all'],
@@ -75,7 +71,6 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               serveStatic('.tmp'),
-              connect().use('/bower_components', serveStatic('./bower_components')),
               connect().use('/app/styles', serveStatic('./app/styles')),
               serveStatic(appConfig.app),
             ];
@@ -141,18 +136,6 @@ module.exports = function (grunt) {
             dest: '.tmp/styles/',
           },
         ],
-      },
-    },
-
-    // Automatically inject Bower components into the app
-    wiredep: {
-      app: {
-        src: ['<%= appConfig.app %>/index.html'],
-        ignorePath: /\.\.\//,
-      },
-      sass: {
-        src: ['<%= appConfig.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: /(\.\.\/){1,2}bower_components\//,
       },
     },
 
@@ -283,12 +266,6 @@ module.exports = function (grunt) {
             dest: '<%= appConfig.dist %>/images',
             src: ['generated/*'],
           },
-          {
-            expand: true,
-            cwd: '.',
-            src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-            dest: '<%= appConfig.dist %>',
-          },
         ],
       },
       styles: {
@@ -313,7 +290,6 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'wiredep',
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
@@ -323,7 +299,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
