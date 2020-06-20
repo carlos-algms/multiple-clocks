@@ -3,6 +3,7 @@
 const loadGruntTasks = require('load-grunt-tasks');
 const timeGrunt = require('time-grunt');
 const serveStatic = require('serve-static');
+const sass = require('node-sass');
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -41,9 +42,9 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>',
         },
       },
-      compass: {
+      sass: {
         files: ['<%= appConfig.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer'],
+        tasks: ['sass', 'autoprefixer'],
       },
       gruntfile: {
         files: ['Gruntfile.js'],
@@ -156,30 +157,14 @@ module.exports = function (grunt) {
     },
 
     // Compiles Sass to CSS and generates necessary files if requested
-    compass: {
+    sass: {
       options: {
-        sassDir: '<%= appConfig.app %>/styles',
-        cssDir: '.tmp/styles',
-        generatedImagesDir: '.tmp/images/generated',
-        imagesDir: '<%= appConfig.app %>/images',
-        javascriptsDir: '<%= appConfig.app %>/scripts',
-        fontsDir: '<%= appConfig.app %>/styles/fonts',
-        importPath: './bower_components',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
-        relativeAssets: false,
-        assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n',
+        implementation: sass,
+        sourceMap: true,
       },
       dist: {
-        options: {
-          generatedImagesDir: '<%= appConfig.dist %>/images/generated',
-        },
-      },
-      server: {
-        options: {
-          sourcemap: true,
+        files: {
+          '.tmp/styles/main.css': '<%= appConfig.app %>/styles/main.scss',
         },
       },
     },
@@ -316,8 +301,8 @@ module.exports = function (grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
-      server: ['compass:server'],
-      dist: ['compass:dist', 'imagemin', 'svgmin'],
+      server: ['sass'],
+      dist: ['sass', 'imagemin', 'svgmin'],
     },
   });
 
