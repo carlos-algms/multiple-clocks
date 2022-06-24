@@ -39,7 +39,7 @@
     "grunt-sass": "^3.1.0",
     "grunt-svgmin": "^6.0.0",
     "grunt-usemin": "^3.1.1",
-    "jsdom": "^16.2.2",
+    "jsdom": "^16.5.0",
     "karma": "^5.1.0",
     "karma-chai": "^0.1.0",
     "karma-jsdom-launcher": "^8.0.2",
